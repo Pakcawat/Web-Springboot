@@ -1,0 +1,74 @@
+<div th:fragment="sidebar">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary d-block position-absolute sticky-top"
+        style="background-color: red; left: 20px; top: 15px;">
+    </button>
+    <div id="sidebar" class="position-absolute flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 270px;">
+        <a href="/" class=" align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+            </svg>
+            <span class="fs-1">Sidebar </spn>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto ">
+            <li class="nav-item">
+                <!--active ทำให้มันเป็นสีฟ้าไว้บอกว่าอยู่หน้าไหนในsidebar-->
+                <a th:href="@{/index/}" class="nav-link text-white" aria-current="page">
+                    Home
+                </a>
+            </li>
+            <li>
+                <button class="btn btn-primary bg-dark nav-link text-white dropdown-toggle " type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false"
+                    aria-controls="collapseExample1">
+                    Product List
+                </button>
+                <div class="collapse" id="collapseExample1">
+                    <div class="border border-white dropdown-menu-dark">
+                        
+                        <a class="nav-link text-white" th:href="@{/imageList}">
+                            List of Product
+                        </a>
+                        <a class="nav-link text-white" th:href="@{/new}">
+                            Upload New Product
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button class="btn btn-primary bg-dark nav-link text-white dropdown-toggle " type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false"
+                    aria-controls="collapseExample2">
+                    File-upload Page
+                </button>
+                <div class="collapse" id="collapseExample2">
+                    <div class="border border-white dropdown-menu-dark">
+                        
+                        <a class="nav-link text-white" th:href="@{/files}">
+                            List of File
+                        </a>
+                        <a class="nav-link text-white" th:href="@{/files/new}">
+                            Upload New File
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    Orders
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    Customers
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+</div>
