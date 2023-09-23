@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head.html :: head}">
+	<meta charset="ISO-8859-1">
+	<title>Create New Product</title>
+</head>
+
+<body>
+	<div th:replace="~{fragments/sidebar.html :: sidebar}"></div>
+	<main class="col ps-md-4 pt-4 ">
+		<div class="container text-center">
+			<div th:replace="~{fragments/header :: header}"></div>
+			<h1>Create New Product</h1>
+			<br />
+			<form action="#" th:action="@{/save} " th:object="${product}" method="post" enctype="multipart/form-data">
+				<table cellpadding="10" style="border: 2px; margin-left: auto; margin-right: auto;">
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" th:field="*{name}" /></td>
+					</tr>
+					<tr>
+						<td>Lastname:</td>
+						<td><input type="text" th:field="*{lastname}" /></td>
+					</tr>
+					<tr>
+						<td>ThainationalIDcard:</td>
+						<td><input type="text" pattern=".{13}" title="Thai-national-IDcard have 13 digits"
+								th:field="*{thainationalIDcard}" /></td>
+					</tr>
+					<tr>
+						<td>Buyin:</td>
+						<td><input type="text" th:field="*{buyin}" /></td>
+					</tr>
+					<tr>
+						<td>Upload You image file: </td>
+						<td>
+							<input id="input-file" type="file" name="file" method="post" th:action="@{/save}"
+								enctype="multipart/form-data"  />
+						</td>
+
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit"
+								class="btn btn-sm btn-outline-success float-right">Save</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</main>
+
+</body>
+
+</html>

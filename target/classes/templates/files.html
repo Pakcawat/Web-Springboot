@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head.html :: head}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <title>File Upload - Thymeleaf File Upload example</title>
+    <style>
+        ul {
+            width: 100%;
+            background: red;
+            height: 20px;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            background: blue;
+            color: white;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div th:replace="~{fragments/sidebar.html :: sidebar}"></div>
+
+    <main class="col ps-md-4 pt-4 ">
+        <div class="container">
+            <div th:replace="~{fragments/header :: header}"></div>
+            <h2 class="text-center">List of Files</h2>
+
+            <div th:if="${files.size() > 0}">
+                <table class="table table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="file : ${files}">
+                            <td>[[${file.filename}]]</td>
+                            <td><a th:href="@{${file.url_image}}">Download</a></td>
+                            <td>
+                                <a th:href="@{'/files/delete/' + ${file.filename}}" th:fileName="${file.filename}"
+                                    id="btnDelete" title="Delete this file"
+                                    class="fa-regular fa-trash-can icon-dark btn-delete"> Delete </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <div th:unless="${files.size() > 0}" class="text-center">
+        <span>No files found! You can Upload File here -> <a class="text-dark link-primary" th:href="@{/files/new}">
+            Upload New File
+        </a></span>
+    </div>
+    </div>
+
+</body>
+
+</html>

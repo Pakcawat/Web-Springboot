@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.MessagingException;
-import jakarta.mail.internet.InternetAddress;
+//import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 import java.io.UnsupportedEncodingException;

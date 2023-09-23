@@ -16,7 +16,7 @@ public interface ImageRepository extends JpaRepository<Imageinfo, Long> {
 
 	List<Imageinfo> findByUser(User user);
 
-	@Query("SELECT t FROM Imageinfo t WHERE t.name LIKE CONCAT('%', :keyword,'%') AND t.user LIKE CONCAT('%', :user,'%')")
+	@Query("SELECT e FROM Imageinfo e WHERE e.name = :keyword AND e.user = :user")
 	List<Imageinfo> findByNameAndUser(String keyword, User user);
 
 	

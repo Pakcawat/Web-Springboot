@@ -2,9 +2,6 @@ package project.model;
 
 import java.util.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -43,7 +43,7 @@ public class Imageservice {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		boolean hasUserRole = authentication.getAuthorities().stream()
 				.anyMatch(r -> r.getAuthority().equals("ROLE_USER"));
-
+		System.out.println("Has user role = " + hasUserRole);
 		User user = userRepository.findByEmail(email);
 		product.setFilename(file.getOriginalFilename());
 		product.setUrl_image(this.root.resolve(file.getOriginalFilename()).toString());
