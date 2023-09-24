@@ -11,7 +11,7 @@
 		<div class="container text-center">
 			<h1>Edit Product</h1>
 			<br />
-			<form action="#" th:action="@{/save}" th:object="${product}" method="post">
+			<form action="#" th:action="@{/save_edit/{id}(id=${product.id})}" th:object="${product}" method="post" enctype="multipart/form-data" >
 				<table border="0" cellpadding="10" align="center">
 					<tr>
 						<td>Product ID:</td>

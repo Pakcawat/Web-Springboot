@@ -10,16 +10,16 @@ import project.model.User;
 
 public interface ImageRepository extends JpaRepository<Imageinfo, Long> {
 	
+	Imageinfo findById(long id);
+    Imageinfo findByName(String name);
+
+    List<Imageinfo> findAllByOrderByIdAsc();
+	List<Imageinfo> findByUser(User user);
 
 	@Query("SELECT p FROM Imageinfo p WHERE p.name LIKE %?1%")
 	public List<Imageinfo> search(String keyword);
 
-	List<Imageinfo> findByUser(User user);
-
 	@Query("SELECT e FROM Imageinfo e WHERE e.name = :keyword AND e.user = :user")
 	List<Imageinfo> findByNameAndUser(String keyword, User user);
-
-	
-	
 
 }

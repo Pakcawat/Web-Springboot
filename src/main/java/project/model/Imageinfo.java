@@ -38,6 +38,7 @@ public class Imageinfo {
     @Column(name = "LastUpdateDateTime", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
+    
     private String url_image;
 
     @ManyToOne
