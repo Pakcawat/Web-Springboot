@@ -58,7 +58,7 @@ public class FileController {
     List<Imageinfo> fileInfos = storageService.loadAll().map(path -> {
       String filename = path.getFileName().toString();
       String url = MvcUriComponentsBuilder
-          .fromMethodName(FileController.class, "getFile", path.getFileName().toString()).build().toString();
+          .fromMethodName(FileController.class, "getFile", filename).build().toString();
       System.out.println(url);
       System.out.println("123");
       return new Imageinfo(filename, url);

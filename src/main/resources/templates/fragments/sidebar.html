@@ -7,7 +7,7 @@
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap" />
             </svg>
-            <span class="fs-1">Sidebar </spn>
+            <span class="fs-1">Menu</spn>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto ">
@@ -17,7 +17,7 @@
                     Home
                 </a>
             </li>
-            <li>
+            <li sec:authorize="hasRole('ROLE_USER')">
                 <button class="btn btn-primary bg-dark nav-link text-white dropdown-toggle " type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false"
                     aria-controls="collapseExample1">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')">
                 <button class="btn btn-primary bg-dark nav-link text-white dropdown-toggle " type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false"
                     aria-controls="collapseExample2">
@@ -52,21 +52,6 @@
                         </a>
                     </div>
                 </div>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    Orders
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    Customers
-                </a>
             </li>
         </ul>
         <hr>

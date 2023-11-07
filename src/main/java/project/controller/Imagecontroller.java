@@ -98,9 +98,12 @@ public class Imagecontroller {
 		return "redirect:/imageList";
 	}
 
-	@RequestMapping("/imageList/{image_name}")
-	public String getImage(@PathVariable(name = "image_name") String image_name)
+	@PostMapping("/imageList/{image_name}")
+	public String getImage(@PathVariable(name = "image_name") String image_name , @ModelAttribute("Url_image") String Url_image)
 	{
-		return "0";
+		Url_image = MvcUriComponentsBuilder
+          .fromMethodName(FileController.class, "getFile", image_name.toString()).build().toString();
+
+		return "redirect:/imageList";
 	}
 }
